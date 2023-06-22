@@ -1,4 +1,7 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload/types'
+import Quote from '../blocks/Quote'
+import Content from '../blocks/Content'
+import Alert from '../blocks/Alert'
 
 const Posts: CollectionConfig = {
   slug: 'posts',
@@ -11,32 +14,64 @@ const Posts: CollectionConfig = {
   },
   fields: [
     {
+      name: 'postMeta',
+      type: 'group',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+          minLength: 20,
+          maxLength: 100,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+          minLength: 40,
+          maxLength: 160,
+        },
+        {
+          name: 'keywords',
+          label: 'Keywords',
+          type: 'text',
+        },
+      ],
+    },
+    {
       name: 'title',
       type: 'text',
+      required: true,
     },
     {
-      name: 'author',
-      type: 'relationship',
-      relationTo: 'users',
-    },
-    {
-      name: 'publishedDate',
-      type: 'date',
-    },
-    {
-      name: 'category',
-      type: 'relationship',
-      relationTo: 'categories'
-    },
-    {
-      name: 'tags',
-      type: 'relationship',
-      relationTo: 'tags',
-      hasMany: true,
-    },
-    {
-      name: 'content',
-      type: 'richText'
+      type: 'tabs',
+      tabs: [
+        {
+          label: 'Post Media',
+          fields: [
+            {
+              name: 'postImage',
+              type: 'upload',
+              relationTo: 'media',
+              required: true,
+            },
+          ],
+        },
+        {
+          label: 'Post Layout',
+          fields: [
+            {
+              name: 'layout',
+              type: 'blocks',
+              blocks: [
+                Quote,
+                Content,
+                Alert
+              ],
+            },
+          ]
+        }
+      ]
     },
     {
       name: 'status',
@@ -55,8 +90,40 @@ const Posts: CollectionConfig = {
       admin: {
         position: 'sidebar',
       }
-    }
+    },
+    {
+      name: 'publishedDate',
+      type: 'date',
+      admin: {
+        position: 'sidebar',
+      }
+    },
+    {
+      name: 'author',
+      type: 'relationship',
+      relationTo: 'users',
+      admin: {
+        position: 'sidebar',
+      }
+    },
+    {
+      name: 'category',
+      type: 'relationship',
+      relationTo: 'categories',
+      admin: {
+        position: 'sidebar',
+      }
+    },
+    {
+      name: 'tags',
+      type: 'relationship',
+      relationTo: 'tags',
+      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      }
+    },
   ],
 }
 
-export default Posts;
+export default Posts

@@ -4,7 +4,7 @@ const Users: CollectionConfig = {
   slug: 'users',
   auth: true,
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: 'name',
   },
   access: {
     read: () => true,
