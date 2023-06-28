@@ -21,7 +21,7 @@ const start = async () => {
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
 
-      const openapiDocument = createDocument(payload.config, {});
+      const openapiDocument = await createDocument(payload.config, {});
       writeFileSync("./openapi.yaml", yaml.stringify(openapiDocument));
     },
   })

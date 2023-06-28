@@ -6,14 +6,21 @@ This project was created using create-payload-app using the blog template.
 
 `yarn dev` will start up your application and reload on any changes.
 
+## API Documentation
+
+The Swagger API documentation UI is available at `/api-docs` and in `openapi.yaml` file generated on each server
+restart.
+
 ### Docker
 
 If you have docker and docker-compose installed, you can run `docker-compose up`
 
 To build the docker image, run `docker build -t my-tag .`
 
-Ensure you are passing all needed environment variables when starting up your container via `--env-file` or setting them with your deployment.
+Ensure you are passing all needed environment variables when starting up your container via `--env-file` or setting them
+with your deployment.
 
 The 3 typical env vars will be `MONGODB_URI`, `PAYLOAD_SECRET`, and `PAYLOAD_CONFIG_PATH`
 
 `docker run --env-file .env -p 3000:3000 my-tag`
+

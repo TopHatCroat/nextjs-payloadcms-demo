@@ -3953,26 +3953,27 @@ pause@0.0.1:
   resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
   integrity sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==
 
-payload-openapi@^1.0.5, payload-openapi@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/payload-openapi/-/payload-openapi-1.1.3.tgz#99bed6ce174b67448bb5e1565019e6b0e0290c8d"
-  integrity sha512-clsV5OtZ34SlvUtKpOZHAieAoUWi/jLN5AuPkLa+Ox/bJ8y+s+NYRixSVrywNV4GrKC7UEzjW86Xr5DjHA9B4Q==
+payload-openapi@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/payload-openapi/-/payload-openapi-1.2.1.tgz#db11592099a00cd1ec1a9ac071d80a8218131716"
+  integrity sha512-yY5l8JPFkHVZSs02Vu0kIS9CIdSYnT3QL43Ot6QOUTZUuXCUCqWPD4eEPCNtALZTLs5yp4fxDJklI/9o37dk2A==
   dependencies:
     "@openapi-contrib/json-schema-to-openapi-schema" "^2.2.5"
     lodash.mergewith "^4.6.2"
+    ts-powertools "0.0.5"
 
-payload-swagger@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/payload-swagger/-/payload-swagger-1.0.5.tgz#3b9378ed1f749cf81aa872b67f347e63439c4ca3"
-  integrity sha512-Yca+SepapsAVOrEc1HijXAenwh/M2Lh4jvDAX17czajNsaRDFyHpCxUvE/hearFkAicbqr2aD7j+22tMJ4mplw==
+payload-swagger@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/payload-swagger/-/payload-swagger-1.2.1.tgz#04328c5b348537cdcbb73e477ea1a77ef90a05fe"
+  integrity sha512-/UFfjVFkg/g8KcP7KzRMxcmx/HVrHTiQghd6pGU6nung9kgOgtN8xoeKEtcNaGwLL0rCtaBdh5UNmgwWLgyETQ==
   dependencies:
-    payload-openapi "^1.0.5"
+    payload-openapi "^1.2.1"
     swagger-ui-express "^4.6.2"
 
-payload@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/payload/-/payload-1.10.0.tgz#e40af17d1a3678dc5addc7ed1588733f8e8b1439"
-  integrity sha512-y31vSkmTJJhfYYPf9pap6SIjOMBtMoUGKGmgb2Es5CeWq5AHyNx8dzibBHIEz90YgyXKbuu+OxZ8faP/c/iy4w==
+payload@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/payload/-/payload-1.10.2.tgz#13f9fbc9d98b59a81d6b225ac21ad3da34066fbe"
+  integrity sha512-7Ie8WlcfDDKRVSAK4NGnMtEt8lNuCboYSHbERJMLYbtYNOyHXCmHiRgW3dWZeF+vTtpd8gRPyjwDWr+4hQQayQ==
   dependencies:
     "@date-io/date-fns" "^2.16.0"
     "@dnd-kit/core" "^6.0.7"
@@ -5797,6 +5798,11 @@ ts-node@^9.1.1:
     make-error "^1.1.1"
     source-map-support "^0.5.17"
     yn "3.1.1"
+
+ts-powertools@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/ts-powertools/-/ts-powertools-0.0.5.tgz#ea73975211465c56d99012e613d4ee354a31a231"
+  integrity sha512-YQyW3AnjkUyJgY5cuOBXu73FnZFNKrWpU0Nc/1R7bnzNPA159LaW9DJCYpao6oQQoCTLrV4rSWRzPPNr5AAjlg==
 
 tslib@^2.0.0, tslib@^2.0.3, tslib@^2.5.0:
   version "2.5.3"
