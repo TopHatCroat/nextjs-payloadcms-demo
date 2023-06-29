@@ -969,6 +969,9 @@ paths:
       description: Find paginated Users
       tags:
         - users
+      security:
+        - basicAuth: []
+          cookieAuth: []
       parameters:
         - name: depth
           in: query
@@ -1159,6 +1162,9 @@ paths:
       description: Get a single User by its id
       tags:
         - users
+      security:
+        - basicAuth: []
+          cookieAuth: []
       parameters:
         - name: id
           in: path
@@ -2162,6 +2168,13 @@ components:
           type: string
         name:
           type: string
+        roles:
+          type: array
+          items:
+            type: string
+            enum:
+              - admin
+              - editor
         updatedAt:
           type: string
         createdAt:

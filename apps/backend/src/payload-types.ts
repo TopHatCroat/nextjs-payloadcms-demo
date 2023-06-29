@@ -104,6 +104,7 @@ export interface User {
   loginAttempts?: number;
   lockUntil?: string;
   password?: string;
+  roles?: ('admin' | 'editor')[];
 }
 export interface Tag {
   id: string;
