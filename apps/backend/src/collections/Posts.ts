@@ -1,128 +1,103 @@
-import { CollectionConfig } from 'payload/types'
-import Quote from '../blocks/Quote'
-import Content from '../blocks/Content'
-import Alert from '../blocks/Alert'
+import { CollectionConfig } from "payload/types"
 
 const Posts: CollectionConfig = {
-  slug: 'posts',
+  slug: "posts",
   admin: {
-    defaultColumns: ['title', 'author', 'category', 'tags', 'status'],
-    useAsTitle: 'title',
+    defaultColumns: ["title", "author", "category", "tags", "status"],
+    useAsTitle: "title",
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'postMeta',
-      type: 'group',
+      name: "postMeta",
+      type: "group",
       fields: [
         {
-          name: 'title',
-          type: 'text',
+          name: "title",
+          type: "text",
           required: true,
           minLength: 20,
           maxLength: 100,
         },
         {
-          name: 'description',
-          type: 'textarea',
+          name: "description",
+          type: "textarea",
           required: true,
           minLength: 40,
           maxLength: 160,
         },
         {
-          name: 'keywords',
-          label: 'Keywords',
-          type: 'text',
+          name: "keywords",
+          label: "Keywords",
+          type: "text",
         },
       ],
     },
     {
-      name: 'title',
-      type: 'text',
+      name: "title",
+      type: "text",
       required: true,
     },
     {
-      type: 'tabs',
+      type: "tabs",
       tabs: [
         {
-          label: 'Post Media',
+          label: "Post Media",
           fields: [
             {
-              name: 'postImage',
-              type: 'upload',
-              relationTo: 'media',
+              name: "postImage",
+              type: "upload",
+              relationTo: "media",
               required: true,
             },
           ],
         },
         {
-          label: 'Post Layout',
+          label: "Post Layout",
           fields: [
             {
-              name: 'layout',
-              type: 'blocks',
-              blocks: [
-                Quote,
-                Content,
-                Alert
-              ],
+              name: "content",
+              type: "richText"
             },
           ]
         }
       ]
     },
     {
-      name: 'status',
-      type: 'select',
+      name: "status",
+      type: "select",
       options: [
         {
-          value: 'draft',
-          label: 'Draft',
+          value: "draft",
+          label: "Draft",
         },
         {
-          value: 'published',
-          label: 'Published',
+          value: "published",
+          label: "Published",
         },
       ],
-      defaultValue: 'draft',
+      defaultValue: "draft",
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
       }
     },
     {
-      name: 'publishedDate',
-      type: 'date',
+      name: "publishedDate",
+      type: "date",
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
       }
     },
     {
-      name: 'author',
-      type: 'relationship',
-      relationTo: 'users',
+      name: "author",
+      type: "relationship",
+      relationTo: "users",
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
       }
-    },
-    {
-      name: 'category',
-      type: 'relationship',
-      relationTo: 'categories',
-      admin: {
-        position: 'sidebar',
-      }
-    },
-    {
-      name: 'tags',
-      type: 'relationship',
-      relationTo: 'tags',
-      hasMany: true,
-      admin: {
-        position: 'sidebar',
-      }
-    },
+    }
   ],
 }
 
