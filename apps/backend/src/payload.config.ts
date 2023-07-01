@@ -21,11 +21,5 @@ export default buildConfig({
   },
   plugins: [
     swagger()
-  ],
-  onInit: async (payload) => {
-    // If the `env` var `PAYLOAD_SEED` is set, seed the db
-    if (process.env.PAYLOAD_SEED) {
-      await seed(payload)
-    }
-  }
+  ]
 })

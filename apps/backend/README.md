@@ -11,6 +11,16 @@ This project was created using create-payload-app using the blog template.
 The Swagger API documentation UI is available at `/api-docs` and in `openapi.yaml` file generated on each server
 restart.
 
+## Seeding development data
+
+Run `yarn seed` to seed your database with development data.
+
+> ⚠️ Warning: This will drop your database deleting all data on your local MongoDB instance!
+
+The script will generate 2 users:
+ * Admin - email: `admin@example.com` password: `Admin1234`
+ * Admin - email: `editor@example.com` password: `Editor1234`
+
 ### Docker
 
 If you have docker and docker-compose installed, you can run `docker-compose up`
