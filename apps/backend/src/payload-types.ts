@@ -8,56 +8,24 @@
 
 export interface Config {
   collections: {
-    categories: Category;
     posts: Post;
-    tags: Tag;
     users: User;
     media: Media;
   };
   globals: {};
 }
-export interface Category {
-  id: string;
-  name?: string;
-}
 export interface Post {
   id: string;
-  postMeta: {
-    title: string;
-    description: string;
-    keywords?: string;
-  };
   title: string;
+  description: string;
+  keywords?: string;
   postImage: string | Media;
-  layout?: (
-    | {
-        quote?: string;
-        author?: string;
-        id?: string;
-        blockName?: string;
-        blockType: 'quote';
-      }
-    | {
-        content?: {
-          [k: string]: unknown;
-        }[];
-        id?: string;
-        blockName?: string;
-        blockType: 'content';
-      }
-    | {
-        type?: 'info' | 'success' | 'warning' | 'danger';
-        message?: string;
-        id?: string;
-        blockName?: string;
-        blockType: 'alert';
-      }
-  )[];
+  content?: {
+    [k: string]: unknown;
+  }[];
   status?: 'draft' | 'published';
   publishedDate?: string;
   author?: string | User;
-  category?: string | Category;
-  tags?: string[] | Tag[];
   updatedAt: string;
   createdAt: string;
 }
@@ -94,6 +62,7 @@ export interface Media {
 export interface User {
   id: string;
   name?: string;
+  roles?: ('admin' | 'editor')[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -104,9 +73,4 @@ export interface User {
   loginAttempts?: number;
   lockUntil?: string;
   password?: string;
-  roles?: ('admin' | 'editor')[];
-}
-export interface Tag {
-  id: string;
-  name?: string;
 }

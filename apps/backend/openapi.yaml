@@ -1251,20 +1251,11 @@ components:
       properties:
         id:
           type: string
-        postMeta:
-          type: object
-          additionalProperties: false
-          properties:
-            title:
-              type: string
-            description:
-              type: string
-            keywords:
-              type: string
-          required:
-            - title
-            - description
         title:
+          type: string
+        description:
+          type: string
+        keywords:
           type: string
         postImage:
           oneOf:
@@ -1291,11 +1282,11 @@ components:
           type: string
       required:
         - id
-        - postMeta
         - title
+        - description
+        - postImage
         - updatedAt
         - createdAt
-        - postImage
     postss:
       type: object
       title: Posts

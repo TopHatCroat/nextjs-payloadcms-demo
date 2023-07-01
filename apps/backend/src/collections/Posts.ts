@@ -11,59 +11,31 @@ const Posts: CollectionConfig = {
   },
   fields: [
     {
-      name: "postMeta",
-      type: "group",
-      fields: [
-        {
-          name: "title",
-          type: "text",
-          required: true,
-          minLength: 20,
-          maxLength: 100,
-        },
-        {
-          name: "description",
-          type: "textarea",
-          required: true,
-          minLength: 40,
-          maxLength: 160,
-        },
-        {
-          name: "keywords",
-          label: "Keywords",
-          type: "text",
-        },
-      ],
-    },
-    {
       name: "title",
       type: "text",
       required: true,
     },
     {
-      type: "tabs",
-      tabs: [
-        {
-          label: "Post Media",
-          fields: [
-            {
-              name: "postImage",
-              type: "upload",
-              relationTo: "media",
-              required: true,
-            },
-          ],
-        },
-        {
-          label: "Post Layout",
-          fields: [
-            {
-              name: "content",
-              type: "richText"
-            },
-          ]
-        }
-      ]
+      name: "description",
+      type: "textarea",
+      required: true,
+      minLength: 40,
+      maxLength: 160,
+    },
+    {
+      name: "keywords",
+      label: "Keywords",
+      type: "text",
+    },
+    {
+      name: "postImage",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
+    {
+      name: "content",
+      type: "richText"
     },
     {
       name: "status",
