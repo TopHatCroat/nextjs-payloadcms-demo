@@ -25,6 +25,47 @@ export const seed = async (payload: Payload): Promise<void> => {
     }
   })
 
+  const frontpageImage = fs.readFileSync("./seed/frontpage.png")
+  const frontpageMedia = await payload.create<"media">({
+    collection: "media",
+    data: {
+      alt: "Four owls sitting on a branch"
+    },
+    overwriteExistingFiles: true,
+    file: {
+      data: frontpageImage,
+      mimetype: "image/png",
+      name: "frontpage",
+      size: frontpageImage.length
+    }
+  })
+
+  await payload.updateGlobal<"frontpage">({
+    slug: "frontpage",
+    data: {
+      about: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum omnis voluptatem accusantium nemo perspiciatis delectus atque autem! Voluptatum tenetur beatae unde aperiam, repellat expedita consequatur! Officiis id consequatur atque doloremque! Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at? Asperiores nemo possimus nesciunt dicta veniam aspernatur quam mollitia.",
+      aboutImage: frontpageMedia.id,
+      features: [
+        {
+          title: "Feature 1",
+          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        },
+        {
+          title: "Feature 2",
+          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        },
+        {
+          title: "Feature 3",
+          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        },
+        {
+          title: "Feature 4",
+          content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        }
+      ]
+    }
+  })
+
   const backendSkill = await payload.create<"skills">({
     collection: "skills",
     data: {

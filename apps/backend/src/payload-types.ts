@@ -14,7 +14,9 @@ export interface Config {
     profiles: Profile;
     skills: Skill;
   };
-  globals: {};
+  globals: {
+    frontpage: Frontpage;
+  };
 }
 export interface Post {
   id: string;
@@ -87,4 +89,16 @@ export interface Profile {
 export interface Skill {
   id: string;
   name?: string;
+}
+export interface Frontpage {
+  id: string;
+  about?: string;
+  aboutImage?: string | Media;
+  features?: {
+    title: string;
+    content: string;
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
 }

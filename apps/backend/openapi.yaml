@@ -1665,6 +1665,63 @@ paths:
           $ref: "#/components/responses/skillsUpsertConfirmationResponse"
         "404":
           $ref: "#/components/responses/NotFoundErrorResponse"
+  /globals/frontpage:
+    get:
+      summary: Get the Frontpage
+      description: Get the Frontpage
+      tags:
+        - global frontpage
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/frontpageResponse"
+    post:
+      summary: Updates the Frontpage
+      description: Updates the Frontpage
+      tags:
+        - global frontpage
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/frontpageRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/frontpageUpsertConfirmationResponse"
   /access:
     get:
       summary: Current user's resource access
@@ -2316,6 +2373,51 @@ components:
       required:
         - doc
         - message
+    frontpage:
+      title: Frontpage
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        about:
+          type: string
+        aboutImage:
+          oneOf:
+            - type: string
+            - $ref: "#/components/schemas/media"
+        features:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              title:
+                type: string
+              content:
+                type: string
+              id:
+                type: string
+            required:
+              - title
+              - content
+        updatedAt:
+          type: string
+        createdAt:
+          type: string
+      required:
+        - id
+    frontpageUpsertConfirmation:
+      type: object
+      title: Frontpage upsert confirmation
+      properties:
+        doc:
+          $ref: "#/components/schemas/frontpage"
+        message:
+          type: string
+      required:
+        - doc
+        - message
   responses:
     InvalidRequestErrorResponse:
       description: invalid request
@@ -2540,6 +2642,18 @@ components:
                 type: array
                 items:
                   $ref: "#/components/schemas/skills"
+    frontpageResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/frontpage"
+    frontpageUpsertConfirmationResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/frontpageUpsertConfirmation"
   requestBodies:
     loginRequest:
       content:
@@ -2592,6 +2706,11 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/skills"
+    frontpageRequest:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/frontpage"
 externalDocs:
   description: Payload REST API documentation
   url: https://payloadcms.com/docs/rest-api/overview

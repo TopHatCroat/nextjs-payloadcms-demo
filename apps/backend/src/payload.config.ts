@@ -8,6 +8,7 @@ import Media from "./collections/Media"
 import { seed } from "./seed"
 import Profiles from "./collections/Profiles"
 import Skills from "./collections/Skills"
+import { Frontpage } from "./collections/Frontpage"
 
 export default buildConfig({
   serverURL: "http://localhost:3000",
@@ -15,6 +16,7 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Posts, Users, Media, Profiles, Skills],
+  globals: [Frontpage],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
