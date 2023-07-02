@@ -11,6 +11,8 @@ export interface Config {
     posts: Post;
     users: User;
     media: Media;
+    profiles: Profile;
+    skills: Skill;
   };
   globals: {};
 }
@@ -73,4 +75,16 @@ export interface User {
   loginAttempts?: number;
   lockUntil?: string;
   password?: string;
+}
+export interface Profile {
+  id: string;
+  name: string;
+  description: string;
+  skills?: string[] | Skill[];
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Skill {
+  id: string;
+  name?: string;
 }

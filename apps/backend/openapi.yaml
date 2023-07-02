@@ -1027,6 +1027,644 @@ paths:
           $ref: "#/components/responses/mediaUpsertConfirmationResponse"
         "404":
           $ref: "#/components/responses/NotFoundErrorResponse"
+  /profiles:
+    get:
+      summary: Find paginated Profiles
+      description: Find paginated Profiles
+      tags:
+        - profiles
+      parameters:
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+      responses:
+        "200":
+          $ref: "#/components/responses/profilessResponse"
+    post:
+      summary: Create a new Profile
+      description: Create a new Profile
+      tags:
+        - profiles
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/profilesRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/profilesUpsertConfirmationResponse"
+    patch:
+      summary: Update multiple Profiles
+      description: Update all Profiles matching the where query
+      tags:
+        - profiles
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+          required: false
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+          required: true
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+          required: false
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+          required: false
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/profilesRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/profilesBulkResponse"
+    delete:
+      summary: Delete multiple Profiles
+      description: Delete all Profiles matching the where query
+      tags:
+        - profiles
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+          required: false
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+          required: true
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+          required: false
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+          required: false
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/profilesBulkResponse"
+  "/profiles/{id}":
+    get:
+      summary: Get a single Profile by its id
+      description: Get a single Profile by its id
+      tags:
+        - profiles
+      parameters:
+        - name: id
+          in: path
+          description: id of the Profile
+          required: true
+          schema:
+            type: string
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+      responses:
+        "200":
+          $ref: "#/components/responses/profilesResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundErrorResponse"
+    patch:
+      summary: Updates a Profile
+      description: Updates a Profile
+      tags:
+        - profiles
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: id of the Profile
+          required: true
+          schema:
+            type: string
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/profilesRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/profilesUpsertConfirmationResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundErrorResponse"
+    delete:
+      summary: Deletes an existing Profile
+      description: Deletes an existing Profile
+      tags:
+        - profiles
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: id of the Profile
+          required: true
+          schema:
+            type: string
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/profilesUpsertConfirmationResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundErrorResponse"
+  /skills:
+    get:
+      summary: Find paginated Skills
+      description: Find paginated Skills
+      tags:
+        - skills
+      parameters:
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+      responses:
+        "200":
+          $ref: "#/components/responses/skillssResponse"
+    post:
+      summary: Create a new Skill
+      description: Create a new Skill
+      tags:
+        - skills
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/skillsRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/skillsUpsertConfirmationResponse"
+    patch:
+      summary: Update multiple Skills
+      description: Update all Skills matching the where query
+      tags:
+        - skills
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+          required: false
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+          required: true
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+          required: false
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+          required: false
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/skillsRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/skillsBulkResponse"
+    delete:
+      summary: Delete multiple Skills
+      description: Delete all Skills matching the where query
+      tags:
+        - skills
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+          required: false
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+          required: true
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+          required: false
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+          required: false
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/skillsBulkResponse"
+  "/skills/{id}":
+    get:
+      summary: Get a single Skill by its id
+      description: Get a single Skill by its id
+      tags:
+        - skills
+      parameters:
+        - name: id
+          in: path
+          description: id of the Skill
+          required: true
+          schema:
+            type: string
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: sort by field
+          schema:
+            type: string
+        - name: where
+          in: query
+          description: pass a where query to constrain returned documents (complex type,
+            see documentation)
+          style: deepObject
+          explode: true
+          allowReserved: true
+          schema:
+            $ref: "#/components/schemas/where"
+        - name: limit
+          in: query
+          description: limit the returned documents to a certain number
+          schema:
+            type: number
+        - name: page
+          in: query
+          description: get a specific page of documents
+          schema:
+            type: number
+      responses:
+        "200":
+          $ref: "#/components/responses/skillsResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundErrorResponse"
+    patch:
+      summary: Updates a Skill
+      description: Updates a Skill
+      tags:
+        - skills
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: id of the Skill
+          required: true
+          schema:
+            type: string
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/skillsRequest"
+      responses:
+        "200":
+          $ref: "#/components/responses/skillsUpsertConfirmationResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundErrorResponse"
+    delete:
+      summary: Deletes an existing Skill
+      description: Deletes an existing Skill
+      tags:
+        - skills
+      security:
+        - basicAuth: []
+          cookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: id of the Skill
+          required: true
+          schema:
+            type: string
+        - name: depth
+          in: query
+          description: number of levels to automatically populate relationships and uploads
+          schema:
+            type: number
+        - name: locale
+          in: query
+          description: retrieves document(s) in a specific locale
+          schema:
+            type: string
+        - name: fallback-locale
+          in: query
+          description: specifies a fallback locale if no locale value exists
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/skillsUpsertConfirmationResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundErrorResponse"
   /access:
     get:
       summary: Current user's resource access
@@ -1546,6 +2184,138 @@ components:
       required:
         - doc
         - message
+    profiles:
+      title: Profile
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        skills:
+          oneOf:
+            - type: array
+              items:
+                type: string
+            - type: array
+              items:
+                $ref: "#/components/schemas/skills"
+        updatedAt:
+          type: string
+        createdAt:
+          type: string
+      required:
+        - id
+        - name
+        - description
+        - updatedAt
+        - createdAt
+    profiless:
+      type: object
+      title: Profiles
+      properties:
+        docs:
+          type: array
+          items:
+            $ref: "#/components/schemas/profiles"
+        totalDocs:
+          type: number
+        limit:
+          type: number
+        totalPages:
+          type: number
+        page:
+          type: number
+        pagingCounter:
+          type: number
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type: number
+        nextPage:
+          type: number
+      required:
+        - docs
+        - totalDocs
+        - limit
+        - totalPages
+        - page
+        - pagingCounter
+        - hasPrevPage
+        - hasNextPage
+    profilesUpsertConfirmation:
+      type: object
+      title: Profile upsert confirmation
+      properties:
+        doc:
+          $ref: "#/components/schemas/profiles"
+        message:
+          type: string
+      required:
+        - doc
+        - message
+    skills:
+      title: Skill
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+    skillss:
+      type: object
+      title: Skills
+      properties:
+        docs:
+          type: array
+          items:
+            $ref: "#/components/schemas/skills"
+        totalDocs:
+          type: number
+        limit:
+          type: number
+        totalPages:
+          type: number
+        page:
+          type: number
+        pagingCounter:
+          type: number
+        hasPrevPage:
+          type: boolean
+        hasNextPage:
+          type: boolean
+        prevPage:
+          type: number
+        nextPage:
+          type: number
+      required:
+        - docs
+        - totalDocs
+        - limit
+        - totalPages
+        - page
+        - pagingCounter
+        - hasPrevPage
+        - hasNextPage
+    skillsUpsertConfirmation:
+      type: object
+      title: Skill upsert confirmation
+      properties:
+        doc:
+          $ref: "#/components/schemas/skills"
+        message:
+          type: string
+      required:
+        - doc
+        - message
   responses:
     InvalidRequestErrorResponse:
       description: invalid request
@@ -1700,6 +2470,76 @@ components:
                 type: array
                 items:
                   $ref: "#/components/schemas/media"
+    profilesResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/profiles"
+    profilessResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/profiless"
+    profilesUpsertConfirmationResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/profilesUpsertConfirmation"
+    profilesBulkResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: array
+                items:
+                  type: string
+              docs:
+                type: array
+                items:
+                  $ref: "#/components/schemas/profiles"
+    skillsResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/skills"
+    skillssResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/skillss"
+    skillsUpsertConfirmationResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/skillsUpsertConfirmation"
+    skillsBulkResponse:
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: array
+                items:
+                  type: string
+              docs:
+                type: array
+                items:
+                  $ref: "#/components/schemas/skills"
   requestBodies:
     loginRequest:
       content:
@@ -1742,6 +2582,16 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/media"
+    profilesRequest:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/profiles"
+    skillsRequest:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/skills"
 externalDocs:
   description: Payload REST API documentation
   url: https://payloadcms.com/docs/rest-api/overview

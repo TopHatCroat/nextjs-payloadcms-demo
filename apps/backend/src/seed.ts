@@ -25,6 +25,54 @@ export const seed = async (payload: Payload): Promise<void> => {
     }
   })
 
+  const backendSkill = await payload.create<"skills">({
+    collection: "skills",
+    data: {
+      name: "Backend"
+    }
+  })
+
+  const frontendSkill = await payload.create<"skills">({
+    collection: "skills",
+    data: {
+      name: "Frontend"
+    }
+  })
+
+  const projectManagementSkill = await payload.create<"skills">({
+    collection: "skills",
+    data: {
+      name: "Project Management"
+    }
+  })
+
+  const frontendProfile = await payload.create<"profiles">({
+    collection: "profiles",
+    data: {
+      name: "Frontend Developer",
+      description: "I am a frontend developer with 5 years of experience.",
+      skills: [frontendSkill.id]
+    }
+  })
+
+  const fullstackProfile = await payload.create<"profiles">({
+    collection: "profiles",
+    data: {
+      name: "Fullstack Developer",
+      description: "I am a fullstack developer with 10 years of experience.",
+      skills: [frontendSkill.id, backendSkill.id]
+    }
+  })
+
+  const projectManagerProfile = await payload.create<"profiles">({
+    collection: "profiles",
+    data: {
+      name: "Project Manager",
+      description: "I am a project manager with 15 years of experience.",
+      skills: [projectManagementSkill.id]
+    }
+  })
+
   const blackhole = fs.readFileSync("./seed/blackhole.jpg")
   const blackholeMedia = await payload.create<"media">({
     collection: "media",
