@@ -46,6 +46,20 @@ turbo dev
    * Open [http://localhost:3100](http://localhost:3000) with your browser to see the UI
 
 
+## 📜 API Documentation
+
+API documentation is provided by [payload-openapi](https://github.com/teunmooij/payload-tools/tree/main/packages/openapi) plugin.
+The full documentation is available in `apps/backend/openapi.yaml`.
+
+### 🚘 Auto-generated REST API
+
+If you changed or added new content types, you can regenerate the REST API documentation by running the following command:
+
+```sh
+turbo generate:rest-api
+```
+
+
 ## 🚀 Deployment
 
 // TODO
