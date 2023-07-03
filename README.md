@@ -1,4 +1,4 @@
-# NextJS + Strapi Starter
+# NextJS + PayloadCMS Demo
 
 ## 🎯 Getting Started
 
@@ -63,4 +63,4 @@ Contributions are always welcome! To contribute, please follow these steps:
 ## Acknowledgements
 
 Thanks to [next-enterprise](https://github.com/Blazity/next-enterprise) for providing the base for the frontend.
-Thanks to [Strapi](https://strapi.io/) for providing the backend for this project.
+Thanks to [PayloadCMS](https://payloadcms.com) for providing the backend headless CMS for this project.
