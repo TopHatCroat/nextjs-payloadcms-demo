@@ -1671,9 +1671,6 @@ paths:
       description: Get the Frontpage
       tags:
         - global frontpage
-      security:
-        - basicAuth: []
-          cookieAuth: []
       parameters:
         - name: depth
           in: query

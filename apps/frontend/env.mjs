@@ -10,12 +10,12 @@ export const env = createEnv({
       .optional()
       .transform((value) => value === "true"),
     // Domain of the CMS API
-    DOMAIN: z.string().default("127.0.0.1"),
+    DOMAIN: z.string().default("localhost"),
   },
   client: {
     // Client variables
     // URL of the CMS API
-    NEXT_PUBLIC_BACKEND_URL: z.string().url().default("http://127.0.0.1:3000")
+    NEXT_PUBLIC_BACKEND_URL: z.string().url().default("http://localhost:3000")
   },
   // Assign runtime variables from process.env
   runtimeEnv: process.env,
