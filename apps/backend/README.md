@@ -2,6 +2,18 @@
 
 This project was created using create-payload-app using the blog template.
 
+## 📃 Scripts Overview
+
+The following scripts are available in the `package.json`:
+
+- `seed`: Generate seed data for the database
+- `dev`: Starts the development server with colorized output
+- `build:payload`: Build payload app for production
+- `build:server`: Build server for production
+- `build`: Builds the app for production
+- `serve`: Runs the production server
+- `generate:types`: Generate TS types
+
 ## How to Use
 
 `yarn dev` will start up your application and reload on any changes.
