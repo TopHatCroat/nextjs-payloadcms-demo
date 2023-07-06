@@ -9,9 +9,7 @@ interface LayoutProps {
 export default function Layout({ children, pages }: LayoutProps) {
   return (
     <>
-      <Navbar
-        items={pages}
-      />
+      <Navbar items={pages} />
       {children}
     </>
   )

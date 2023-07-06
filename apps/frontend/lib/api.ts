@@ -7,6 +7,6 @@ import { env } from "env.mjs"
  */
 export function getApiConfiguration(): Configuration {
   return new Configuration({
-    basePath: `${env.NEXT_PUBLIC_BACKEND_URL}/api`
+    basePath: `${env.NEXT_PUBLIC_BACKEND_URL}/api`,
   })
 }

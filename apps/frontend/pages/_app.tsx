@@ -37,9 +37,7 @@ MyApp.getInitialProps = async (ctx: AppContext) => {
   return {
     ...appProps,
     pageProps: {
-      pages: [
-        { label: "Home", href: "/" },
-      ],
+      pages: [{ label: "Home", href: "/" }],
     },
   }
 }
