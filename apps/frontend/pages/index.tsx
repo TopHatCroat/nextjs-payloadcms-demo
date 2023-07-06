@@ -12,10 +12,14 @@ interface IndexProps extends GlobalPageProps {
     width: number,
     height: number,
     alt: string,
-  }
+  },
+  features: Array<{
+    title: string,
+    description: string,
+  }>
 }
 
-export default function Index({ pages, about, aboutImage }: IndexProps) {
+export default function Index({ pages, about, aboutImage, features }: IndexProps) {
   return (
     <Layout pages={pages}>
       <div className="relative bg-white py-16">
@@ -44,6 +48,17 @@ export default function Index({ pages, about, aboutImage }: IndexProps) {
               </blockquote>
             </div>
           </div>
+        </div>
+        <div className="mx-auto px-16 sm:px-8 md:mx-0 flex flex-col md:flex-row max-w-none">
+          {features.map((feature, index) => {
+            return (
+              <div key={index}
+                   className="mt-10 lg:mt-8 flex items-center md:items-start flex-col md:mr-8 last:mr-0">
+                <h3 className="ml-3 font-bold text-xl text-primary-900">{feature.title}</h3>
+                <p className="mt-4 text-center md:text-left text-gray-600 leading-relaxed">{feature.description}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </Layout>
