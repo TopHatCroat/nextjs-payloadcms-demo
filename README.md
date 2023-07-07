@@ -42,8 +42,8 @@ turbo dev
 ```
 
 7. Access the UIs:
-   * Open [http://localhost:3000](http://localhost:3001) with your browser to see the admin UI
-   * Open [http://localhost:3100](http://localhost:3000) with your browser to see the UI
+   * Open [http://localhost:3000](http://localhost:3000) with your browser to see the admin UI
+   * Open [http://localhost:3100](http://localhost:3100) with your browser to see the UI
 
 
 ## 📜 API Documentation
@@ -77,4 +77,4 @@ Contributions are always welcome! To contribute, please follow these steps:
 ## Acknowledgements
 
 Thanks to [next-enterprise](https://github.com/Blazity/next-enterprise) for providing the base for the frontend.
-Thanks to [PayloadCMS](https://payloadcms.com) for providing the backend headless CMS for this project.
+Thanks to [Payload CMS](https://payloadcms.com) for providing the backend headless CMS for this project.
