@@ -8,97 +8,97 @@
 
 export interface Config {
   collections: {
-    posts: Post;
-    users: User;
-    media: Media;
-    profiles: Profile;
-    skills: Skill;
-  };
+    posts: Post
+    users: User
+    media: Media
+    profiles: Profile
+    skills: Skill
+  }
   globals: {
-    frontpage: Frontpage;
-  };
+    frontpage: Frontpage
+  }
 }
 export interface Post {
-  id: string;
-  title: string;
-  description: string;
-  keywords?: string;
-  postImage: string | Media;
+  id: string
+  title: string
+  description: string
+  keywords?: string
+  postImage: string | Media
   content?: {
-    [k: string]: unknown;
-  }[];
-  status?: 'draft' | 'published';
-  publishedDate?: string;
-  author?: string | User;
-  updatedAt: string;
-  createdAt: string;
+    [k: string]: unknown
+  }[]
+  status?: "draft" | "published"
+  publishedDate?: string
+  author?: string | User
+  updatedAt: string
+  createdAt: string
 }
 export interface Media {
-  id: string;
-  alt?: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
+  id: string
+  alt?: string
+  updatedAt: string
+  createdAt: string
+  url?: string
+  filename?: string
+  mimeType?: string
+  filesize?: number
+  width?: number
+  height?: number
   sizes?: {
     thumbnail?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
+      url?: string
+      width?: number
+      height?: number
+      mimeType?: string
+      filesize?: number
+      filename?: string
+    }
     sixteenByNineMedium?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
+      url?: string
+      width?: number
+      height?: number
+      mimeType?: string
+      filesize?: number
+      filename?: string
+    }
+  }
 }
 export interface User {
-  id: string;
-  name?: string;
-  roles?: ('admin' | 'editor')[];
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  salt?: string;
-  hash?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  password?: string;
+  id: string
+  name?: string
+  roles?: ("admin" | "editor")[]
+  updatedAt: string
+  createdAt: string
+  email: string
+  resetPasswordToken?: string
+  resetPasswordExpiration?: string
+  salt?: string
+  hash?: string
+  loginAttempts?: number
+  lockUntil?: string
+  password?: string
 }
 export interface Profile {
-  id: string;
-  name: string;
-  description: string;
-  skills?: string[] | Skill[];
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  name: string
+  description: string
+  skills?: string[] | Skill[]
+  updatedAt: string
+  createdAt: string
 }
 export interface Skill {
-  id: string;
-  name?: string;
+  id: string
+  name?: string
 }
 export interface Frontpage {
-  id: string;
-  about?: string;
-  aboutImage?: string | Media;
+  id: string
+  about?: string
+  aboutImage?: string | Media
   features?: {
-    title: string;
-    content: string;
-    id?: string;
-  }[];
-  updatedAt?: string;
-  createdAt?: string;
+    title: string
+    content: string
+    id?: string
+  }[]
+  updatedAt?: string
+  createdAt?: string
 }

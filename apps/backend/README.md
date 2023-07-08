@@ -30,8 +30,9 @@ Run `yarn seed` to seed your database with development data.
 > ⚠️ Warning: This will drop your database deleting all data on your local MongoDB instance!
 
 The script will generate 2 users:
- * Admin - email: `admin@example.com` password: `Admin1234`
- * Admin - email: `editor@example.com` password: `Editor1234`
+
+- Admin - email: `admin@example.com` password: `Admin1234`
+- Admin - email: `editor@example.com` password: `Editor1234`
 
 ### Docker
 
@@ -45,4 +46,3 @@ with your deployment.
 The 3 typical env vars will be `MONGODB_URI`, `PAYLOAD_SECRET`, and `PAYLOAD_CONFIG_PATH`
 
 `docker run --env-file .env -p 3000:3000 my-tag`
-

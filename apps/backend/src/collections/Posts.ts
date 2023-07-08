@@ -34,7 +34,7 @@ const Posts: CollectionConfig = {
     },
     {
       name: "content",
-      type: "richText"
+      type: "richText",
     },
     {
       name: "status",
@@ -52,14 +52,14 @@ const Posts: CollectionConfig = {
       defaultValue: "draft",
       admin: {
         position: "sidebar",
-      }
+      },
     },
     {
       name: "publishedDate",
       type: "date",
       admin: {
         position: "sidebar",
-      }
+      },
     },
     {
       name: "author",
@@ -67,8 +67,8 @@ const Posts: CollectionConfig = {
       relationTo: "users",
       admin: {
         position: "sidebar",
-      }
-    }
+      },
+    },
   ],
 }
 

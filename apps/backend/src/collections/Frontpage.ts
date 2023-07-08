@@ -29,7 +29,7 @@ export const Frontpage: GlobalConfig = {
           type: "text",
           required: true,
         },
-      ]
-    }
-  ]
+      ],
+    },
+  ],
 }

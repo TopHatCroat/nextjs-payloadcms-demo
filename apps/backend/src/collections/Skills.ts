@@ -1,20 +1,20 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from "payload/types"
 
 const Skills: CollectionConfig = {
-  slug: 'skills',
+  slug: "skills",
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: "name",
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'name',
-      type: 'text',
+      name: "name",
+      type: "text",
     },
   ],
   timestamps: false,
 }
 
-export default Skills;
+export default Skills

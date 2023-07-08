@@ -1,9 +1,9 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from "payload/types"
 import { isAdmin, isAdminFieldLevel } from "../access/isAdmin"
 import { isAdminOrSelf } from "../access/isAdminOrSelf"
 
 const Users: CollectionConfig = {
-  slug: 'users',
+  slug: "users",
   auth: {
     // This property controls how deeply "populated"
     // relationship docs are that are stored in the req.user.
@@ -12,7 +12,7 @@ const Users: CollectionConfig = {
     depth: 0,
   },
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: "name",
   },
   access: {
     // Only admins can create users
@@ -27,16 +27,16 @@ const Users: CollectionConfig = {
   fields: [
     // Email added by default
     {
-      name: 'name',
-      type: 'text',
+      name: "name",
+      type: "text",
     },
     {
-      name: 'roles',
+      name: "roles",
       // Save this field to JWT, so we can use from `req.user`
       saveToJWT: true,
-      type: 'select',
+      type: "select",
       hasMany: true,
-      defaultValue: ['editor'],
+      defaultValue: ["editor"],
       access: {
         // Only admins can create or update a value for this field
         create: isAdminFieldLevel,
@@ -44,16 +44,16 @@ const Users: CollectionConfig = {
       },
       options: [
         {
-          label: 'Admin',
-          value: 'admin',
+          label: "Admin",
+          value: "admin",
         },
         {
-          label: 'Editor',
-          value: 'editor',
+          label: "Editor",
+          value: "editor",
         },
-      ]
+      ],
     },
   ],
-};
+}
 
-export default Users;
+export default Users

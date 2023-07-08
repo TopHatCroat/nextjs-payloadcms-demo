@@ -26,8 +26,8 @@ const Profiles: CollectionConfig = {
       type: "relationship",
       relationTo: "skills",
       hasMany: true,
-    }
+    },
   ],
 }
 
-export default Profiles;
+export default Profiles

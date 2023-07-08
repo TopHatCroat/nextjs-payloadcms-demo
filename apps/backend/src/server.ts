@@ -1,17 +1,17 @@
-import express from 'express';
-import payload from 'payload';
+import express from "express"
+import payload from "payload"
 import { createDocument } from "payload-openapi"
 import { writeFileSync } from "fs"
 import yaml from "yaml"
 import { seed } from "./seed"
 
-require('dotenv').config();
-const app = express();
+require("dotenv").config()
+const app = express()
 
 // Redirect root to Admin panel
-app.get('/', (_, res) => {
-  res.redirect('/admin');
-});
+app.get("/", (_, res) => {
+  res.redirect("/admin")
+})
 
 const start = async () => {
   // Initialize Payload
@@ -22,8 +22,8 @@ const start = async () => {
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
 
-      const openapiDocument = await createDocument(payload.config, {});
-      writeFileSync("./openapi.yaml", yaml.stringify(openapiDocument));
+      const openapiDocument = await createDocument(payload.config, {})
+      writeFileSync("./openapi.yaml", yaml.stringify(openapiDocument))
 
       // If the `env` var `PAYLOAD_SEED` is set, seed the db
       if (process.env.PAYLOAD_SEED) {
@@ -36,7 +36,7 @@ const start = async () => {
 
   // Add your own express routes here
 
-  app.listen(3000);
+  app.listen(3000)
 }
 
-start();
+start()
